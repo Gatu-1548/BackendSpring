@@ -54,19 +54,22 @@ package com.example.myapp.dto;
 public class InventarioDTO {
 
     private Long id;
-    private String nombreProducto;       // Nombre del producto
-    private String descripcionProducto;  // Descripción del producto
-    private Double precioProducto;       // Precio del producto
-    private String imagenUrlProducto;    // URL de la imagen del producto
-    private String nombreColor;          // Nombre del color (ej. Rojo, Azul)
-    private String codigoHexColor;       // Código hexadecimal del color (ej. #FFFFFF)
-    private Integer cantidad;            // Cantidad del producto en este color
+    private String nombreProducto;
+    private String descripcionProducto;
+    private Double precioProducto;
+    private String imagenUrlProducto;
+    private String nombreColor;
+    private String codigoHexColor;
+    private Integer cantidad;
+
+    // Nuevo campo para el código de color recibido del frontend
+    private String color; // Añadir el campo color
 
     // Constructor vacío
     public InventarioDTO() {}
 
     // Constructor con parámetros
-    public InventarioDTO(Long id, String nombreProducto, String descripcionProducto, Double precioProducto, String imagenUrlProducto, String nombreColor, String codigoHexColor, Integer cantidad) {
+    public InventarioDTO(Long id, String nombreProducto, String descripcionProducto, Double precioProducto, String imagenUrlProducto, String nombreColor, String codigoHexColor, Integer cantidad, String color) {
         this.id = id;
         this.nombreProducto = nombreProducto;
         this.descripcionProducto = descripcionProducto;
@@ -75,6 +78,7 @@ public class InventarioDTO {
         this.nombreColor = nombreColor;
         this.codigoHexColor = codigoHexColor;
         this.cantidad = cantidad;
+        this.color = color;  // Asignar el nuevo campo
     }
 
     // Getters y Setters
@@ -142,6 +146,14 @@ public class InventarioDTO {
         this.cantidad = cantidad;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     @Override
     public String toString() {
         return "InventarioDTO{" +
@@ -153,13 +165,7 @@ public class InventarioDTO {
                 ", nombreColor='" + nombreColor + '\'' +
                 ", codigoHexColor='" + codigoHexColor + '\'' +
                 ", cantidad=" + cantidad +
+                ", color='" + color + '\'' +
                 '}';
     }
-
-
-
-    public String getColor() {
-        return this.codigoHexColor;  // Retorna el código hexadecimal del color
-    }
-
 }
